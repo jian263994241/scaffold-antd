@@ -25,11 +25,15 @@ export default class TopMenu extends Component{
 
     const matched = matchPath(pathname, {path: '/:key'});
 
-    this.state = {
-      defaultSelectedKeys: [matched.params.key],
-      addProjectOpened:  false
+    if(matched){
+      this.state.defaultSelectedKeys = [matched.params.key];
     }
 
+  }
+
+  state = {
+    addProjectOpened:  false,
+    defaultSelectedKeys: []
   }
 
   openAddProjectPop = ()=>{
