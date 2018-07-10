@@ -7,6 +7,7 @@ import Route from 'react-router-dom/Route';
 
 import store from './mod/store';
 import pages from './mod/pages';
+import AppLayout from './mod/components/AppLayout';
 
 import {observer, Provider} from 'mobx-react';
 
@@ -19,11 +20,11 @@ class App extends Component {
     return (
       <Provider rootStore={store}>
         <Router history={history}>
-          <Fragment>
+          <AppLayout>
             {
               pages.map((item, index)=>( <Route key={index} {...item}/> ))
             }
-          </Fragment>
+          </AppLayout>
         </Router>
       </Provider>
     );
