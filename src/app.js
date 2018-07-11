@@ -20,11 +20,7 @@ class App extends Component {
     return (
       <Provider rootStore={store}>
         <Router history={history}>
-          <AppLayout>
-            {
-              pages.map((item, index)=>( <Route key={index} {...item}/> ))
-            }
-          </AppLayout>
+          <AppLayout> { pages.map((item, index)=>( <Route key={index} {...item}/> )) } </AppLayout>
         </Router>
       </Provider>
     );

@@ -44,7 +44,6 @@ export default class TopMenu extends Component{
 
   render(){
 
-
     return (
       <Fragment>
         <Row type="flex" justify="space-between" align="middle">

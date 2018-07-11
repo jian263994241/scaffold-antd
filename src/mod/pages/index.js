@@ -1,13 +1,15 @@
 import LoginPage from './user/login';
 import Index from './indexpage';
-import Needs from './project/needs';
-import Progress from './project/progress';
-import Completed from './project/completed';
+import ProjectNeeds from './project/needs';
+import ProjectProgress from './project/progress';
+import ProjectCompleted from './project/completed';
+import UsersDashboard from './users/dashboard';
 
 const routes = [
-  {path: '/project/needs',  component: Needs},
-  {path: '/project/progress',  component: Progress},
-  {path: '/project/completed',  component: Completed},
+  {path: '/project/needs',  component: ProjectNeeds},
+  {path: '/project/progress',  component: ProjectProgress},
+  {path: '/project/completed',  component: ProjectCompleted},
+  {path: '/users/dashboard',  component: UsersDashboard},
 ]
 
 

@@ -6,7 +6,7 @@ import LeftMenu from '../../../components/LeftMenu';
 
 const { Header, Content, Footer, Sider } = Layout;
 
-export default class PageCompleted extends Component {
+export default class PageProjectCompleted extends Component {
 
   render(){
 
