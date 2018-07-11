@@ -19,21 +19,8 @@ const MenuItemGroup = Menu.ItemGroup;
 @observer
 export default class TopMenu extends Component{
 
-  constructor(props){
-    super(props);
-    const pathname = props.routing.location.pathname;
-
-    const matched = matchPath(pathname, {path: '/:key'});
-
-    if(matched){
-      this.state.defaultSelectedKeys = [matched.params.key];
-    }
-
-  }
-
   state = {
-    addProjectOpened:  false,
-    defaultSelectedKeys: []
+    addProjectOpened:  false
   }
 
   openAddProjectPop = ()=>{
@@ -48,11 +35,15 @@ export default class TopMenu extends Component{
     })
   }
 
+  getSelectKey = ()=>{
+    const { routing } = this.props;
+    const pathname = routing.location.pathname;
+    const matched = matchPath(pathname, {path: '/:key'});
+    return matched && matched.params.key ;
+  }
+
   render(){
 
-    const {
-      routing
-    } = this.props;
 
     return (
       <Fragment>
@@ -61,14 +52,14 @@ export default class TopMenu extends Component{
             <Menu
               theme="dark"
               mode="horizontal"
-              defaultSelectedKeys={this.state.defaultSelectedKeys}
+              selectedKeys={[this.getSelectKey()]}
               style={{ lineHeight: '64px' }}
             >
               <Menu.Item key="project">
                 <Link to="/project/needs"> <Icon type="schedule" /> 项目</Link>
               </Menu.Item>
               <Menu.Item key="users">
-                <Link to="/users/dashboard"> <Icon type="user" />  人员</Link>
+                <Link to="/users/dashboard"> <Icon type="team" />  人员</Link>
               </Menu.Item>
             </Menu>
           </Col>
@@ -85,15 +76,10 @@ export default class TopMenu extends Component{
               <SubMenu title={<span> Jay.Liu</span>}>
                 <Menu.Item key="setting:1"><Link to="/user/login">登出</Link></Menu.Item>
               </SubMenu>
-
             </Menu>
           </Col>
         </Row>
-        <AddProjectPop
-          visible={this.state.addProjectOpened}
-          onCancel={this.closeAddProjectPop}
-        />
-
+        <AddProjectPop visible={this.state.addProjectOpened} onCancel={this.closeAddProjectPop} />
       </Fragment>
     )
   }

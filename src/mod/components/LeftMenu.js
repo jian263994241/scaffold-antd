@@ -1,5 +1,4 @@
 import React, {Component, PureComponent} from 'react';
-import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import {observable} from 'mobx';
 import Menu from 'antd/lib/menu';
@@ -17,33 +16,25 @@ const { SubMenu } = Menu;
 @observer
 export default class LeftMenu extends Component{
 
-  @observable selectedKeys = null;
-  @observable type = '';
-
-  constructor(props){
-    super(props);
-    this.routing = props.routing;
-    const pathname = this.routing.location.pathname;
-    this.defaultSelectedKeys = [pathname];
-  }
-
   handleClick = ({ item, key, keyPath })=>{
-    this.routing.push(key);
+    this.props.routing.push(key);
   }
 
   render(){
+
+    const {routing} = this.props;
 
     return (
       <Sider width={200} style={{ background: '#fff' }}>
         <Menu
           mode="inline"
           style={{ height: '100%' }}
-          defaultSelectedKeys={this.defaultSelectedKeys}
+          defaultSelectedKeys={[routing.location.pathname]}
           onClick={this.handleClick}
         >
-          <Menu.Item key="/project/needs"> <Icon type="" /> 需求池 </Menu.Item>
-          <Menu.Item key="/project/progress"> <Icon type="" /> 进行中的项目 </Menu.Item>
-          <Menu.Item key="/project/completed"> <Icon type="" /> 已完成的项目 </Menu.Item>
+          <Menu.Item key="/project/needs"> <Icon type="laptop" /> 需求池 </Menu.Item>
+          <Menu.Item key="/project/progress"> <Icon type="table" /> 进行中的项目 </Menu.Item>
+          <Menu.Item key="/project/completed"> <Icon type="paper-clip" /> 已完成的项目 </Menu.Item>
         </Menu>
       </Sider>
     )
