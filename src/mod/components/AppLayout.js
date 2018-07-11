@@ -8,7 +8,7 @@ import LeftMenu from './LeftMenu';
 
 const { Header, Content, Footer, Sider } = Layout;
 
-export default class AppLayout extends PureComponent {
+export default class AppLayout extends Component {
 
   render() {
 
