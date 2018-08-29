@@ -1,3 +1,4 @@
+import 'raf/polyfill';
 import React, {Component, Fragment} from 'react'
 import {render} from 'react-dom'
 import createHashHistory from 'history/createHashHistory';

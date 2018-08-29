@@ -24,20 +24,21 @@
   },
   "homepage": "https://github.com/jian263994241/default#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "antd": "^3.6.2",
     "axios": "^0.18.0",
     "history": "^4.7.2",
     "js-cookie": "^2.2.0",
     "kqjs": "^2.0.10",
     "lodash": "^4.17.10",
-    "mobx": "^5.0.0",
+    "mobx": "^4.4.0",
     "mobx-react": "^5.2.0",
     "mobx-react-router": "^4.0.4",
     "prop-types": "^15.6.1",
     "query-string": "^5.1.1",
+    "raf": "^3.4.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "react-router-dom": "^4.3.1",
-    "wonder-ui": "^0.2.0"
+    "react-router-dom": "^4.3.1"
   }
 }
